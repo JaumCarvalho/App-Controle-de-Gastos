@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Despesas</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>
+                Quadro de Despesas
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size-md="6" offset-md="3">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>Nova despesa</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <ion-item>
+                                    <ion-input type="text" label="Motivo" label-placement="floating" id="input-reason"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-input type="number" label="Valor" label-placement="floating" id="input-amount"></ion-input>
+                                </ion-item>
+                                <div class="ion-margin-vertical ion-text-right">
+                                    <ion-button fill="outline" color="danger" id="btn-cancel">
+                                        <ion-icon slot="start" name="close"></ion-icon>
+                                        Limpar
+                                    </ion-button>
+                                    <ion-button id="btn-confirm">
+                                        <ion-icon slot="start" name="add"></ion-icon>
+                                        Adicionar
+                                    </ion-button>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-md="6" offset-md="3">
+                        <ion-list id="expenses-list"></ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-md="6" offset-md="3">
+                        <p margin>Total de gastos: <span id="total-expenses"></span></p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-content>
+        <ion-alert id="alert-ctrl"
+        header="Entrada de dados inválidas"
+        message="Digite valores válidos!"
+        ></ion-alert>
+    </ion-app>
+    <script src="app.js"></script>
+</body>
+</html>
+
